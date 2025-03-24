@@ -1,0 +1,16 @@
+1、支持中文，引用langCN.js中的变量，创建jexcel的参数要加上：text: jexcelText
+2、修改about，引用langCN.js中的变量，创建jexcel的参数要加上：about: jexcelAbout
+
+-----------------------------------以下是对源码的修改------------------------------------
+20220120 胡波：
+    修改jexcel.js,调用本地的jsuites.js和jsuites.css
+    修改jexcel.js,增加对mytext的支持，使该格式能支持jexcel的快捷键，包括enter和tab
+    修改jexcel.css,屏蔽css中对滚动条的样式设置，原组件中的滚动条样式太窄，很难点击到
+    修改jsuites.css,屏蔽-webkit-fill-available，和当前的版本有不兼容
+    修改jexcel.js，修改1307行，修改obj.createCellHeader，其中设置title使用错了变量，在官方4.9.6版本中已经修复
+    修改jexcel.js，增加7986行，增加条件判断if (x !== null && y !== null) ，原因见注释
+    修改jexcel.js，增加7962-7964行，屏蔽条件判断 ，原因见注释
+    修改jexcel.js，修改7968-7970行，支持自定义editor的右键 ，原因见注释
+    修改jsuites.js，屏蔽2692，2693行，屏蔽原生的close右键。
+    修改jexcel.js，修改7285行，将事件e透传
+    修改jexcel.js, 屏蔽7228, 7233,7236，暂不支持下载，undo，redo。
